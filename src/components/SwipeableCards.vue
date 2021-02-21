@@ -24,15 +24,84 @@
         @draggedUp="emitAndNext('skip')"
         class="rounded-borders card card--one"
       >
-        <div class="" style="height: 100%">
-          <img
+        <div class="firstsplit">
+          <!-- <img
             :src="require(`../assets/images/${current.src}`)"
             class="rounded-borders"
-          />
-          <div class="text">
-            <h2>
+          /> -->
+
+          <!-- CLAIRE LEE top text box-->
+          <div style="flex: 1; background: pink;">
+            <h1>
               {{ current.name }}, <span>{{ current.age }}</span>
-            </h2>
+            </h1>
+          </div>
+
+          <!-- everything below the name-->
+          <div class="threesplit" style="flex: 4; background: orange;">
+            <!-- pronouns and picture-->
+            <div style="flex: 1; background: red;">
+              <div
+                class="pronounpicture"
+                style="padding-right: 3vH; padding-top: 3vH; padding-bottom: 4vH; padding-left: 3vH; max-height: 40vh"
+              >
+                <h2>she/her/hers</h2>
+                <img :src="require(`../assets/images/${current.src}`)" />
+              </div>
+            </div>
+            <!--basic info and classes -->
+            <div style="flex: 1; ">
+              <div class="bioclasses" style="flex: 3; padding-left: 2vH;">
+                <!--bio that includes year, major, location -->
+                <div>
+                  <h3><i class="fas fa-user"></i> Freshman</h3>
+                  <h3><i class="fas fa-user"></i> Intended Computer Science</h3>
+                  <h3><i class="fas fa-user"></i> Berkeley, CA</h3>
+                </div>
+                <!--list of classes -->
+                <div style="flex: 4">
+                  <h2 style=" margin: 0.5vh; padding-top: 5vH; ">
+                    Classes <i class="fas fa-pencil-alt"></i>
+                  </h2>
+                  <ul style=" margin: 1vh;">
+                    <li>CS61B</li>
+                    <li>EECS16B</li>
+                    <li>ESPM40</li>
+                    <li>DataSci</li>
+                    <li>R1B Slavic</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- hobbies and study habits-->
+            <div style="flex: 1;">
+              <div class="bioclasses" style="flex: 3">
+                <!--bio that includes year, major, location -->
+                <div>
+                  <h2 style="margin: 0.5vh;">
+                    Hobbies <i class="fas fa-basketball-ball"></i>
+                  </h2>
+                  <ul>
+                    <li>dance</li>
+                    <li>reading</li>
+                    <li>hiking</li>
+                  </ul>
+                </div>
+                <!--list of classes -->
+                <div style="flex: 4">
+                  <h2 style="margin: 0.5vh;">
+                    Study Habits <i class="far fa-clock"></i>
+                  </h2>
+                  <ul>
+                    <li>morning</li>
+                    <li>late afternoon</li>
+                    <li>pomodoro</li>
+                    <li>groupstyle</li>
+                    <li>review sessions</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </Vue2InteractDraggable>
@@ -49,7 +118,10 @@
         />
         <div class="text">
           <h2>
-            {{ next.name }}, <span>{{ next.age }}</span>
+            {{ next.name }}
+          </h2>
+          <h2>
+            {{ next.age }}
           </h2>
         </div>
       </div>
@@ -74,6 +146,7 @@
     </div>
   </section>
 </template>
+
 <script>
 import { Vue2InteractDraggable, InteractEventBus } from "vue2-interact";
 const EVENTS = {
@@ -142,6 +215,59 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h1 {
+  font-size: 70px;
+  margin: 1vh;
+}
+
+h2 {
+  font-size: 30px;
+  margin: 0.5vh;
+}
+
+h3 {
+  font-size: 20px;
+  margin: 1vh;
+}
+
+li {
+  font-size: 18px;
+}
+
+.icon {
+  top: 5px;
+  left: 5px;
+}
+
+.firstsplit {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.threesplit {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-grow: 1;
+}
+
+.pronounpicture {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+  flex-grow: 1;
+}
+
+.bioclasses {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-grow: 1;
+}
+
 .container {
   display: flex;
   background: #eceff1;
